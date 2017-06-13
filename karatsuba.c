@@ -201,36 +201,25 @@ char* karatsuba(char* s1, char* s2)
 		
 		char* ac = malloc(sizeof(char*) * (lena + lenc));
 		ac = karatsuba(a, c);
-		//printf("ac = %s\n",ac);
 		char* ac_append = malloc(sizeof(char*) * (len1 + len2));
 		ac_append = append(ac, '0', lenb + lend);
-		//printf("ac after appending = %s\n",ac_append);
 		char* bd = malloc(sizeof(char*) * (lenb + lend));
 		bd = karatsuba(b, d);
-		//printf("bd = %s\n",bd);
 		char* abcd = malloc(sizeof(char*) * (lena + lenc + 2));
 		char* apb = malloc(sizeof(char*) * (lena + 1));
 		char* cpd = malloc(sizeof(char*) * (lenc + 1));
 		apb = add(a,b);
 		cpd = add(c,d);
-		//printf("a + b = %s\nc + d = %s\n",apb, cpd);
 		abcd = karatsuba(apb, cpd);
-		//printf("abcd = %s\n",abcd);
 		char* gauss = malloc(sizeof(char*) * (lena + lenc + 2));
 		char* acpbd = malloc(sizeof(char*) * (lena + lenc + 1));
 		acpbd = add(ac,bd);
-		//printf("ac + bd = %s\n",acpbd);
-		//printf("Before: gauss = %s\n", subtract(abcd, acpbd));
 		gauss = subtract(abcd, acpbd);
-		//printf("gauss = %s\n",gauss);
 		char* gauss_append = malloc(sizeof(char*) * (len1 / 2 + lena + lenc + 2));
 		gauss_append = append(gauss, '0', lenb);
-		//printf("gauss after appending = %s\n",gauss_append);
 		char* ans = malloc(sizeof(char*) * (len1 + len2));
 		ans = add(ac_append, gauss_append);
-		//printf("ac + gauss = %s\n",ans);
 		ans = add(ans, bd);
-		//printf("ans = %s\n",ans);
 		return ans;
 	}
 }
