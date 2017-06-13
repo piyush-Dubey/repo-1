@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 
-// n equals number of times c is to be appended to the string
+// This functions appends c to s1 n times
 char* append(char* s1, char c, int n)
 {
 	int i;
@@ -26,6 +26,7 @@ char* append(char* s1, char c, int n)
 	return "0";
 }
 
+// This function prepends c to s1 n times
 char* prepend(char* s1, char c, int n)
 {
 	int len1 = strlen(s1), len = n + len1;
@@ -42,6 +43,7 @@ char* prepend(char* s1, char c, int n)
 	return str;
 }
 
+// This function adds two strings which contain numbers and returns the sum as a string
 char* add(char* s1, char* s2)
 {
 	int i;
@@ -92,6 +94,10 @@ char* add(char* s1, char* s2)
 	return s;
 }
 
+/* This function removes the front characters.
+If the input string only consists of the character c, then
+string str becomes "0".
+*/
 void rm_front_chars(char* str, char c)
 {
 	char *pr = str + 1, *pw = str;
@@ -137,6 +143,8 @@ char* subtract(char* s1, char* s2)
 	rm_front_chars(str, '0');
 	return str;
 }
+
+// Function to implement karatsuba algorithm
 
 char* karatsuba(char* s1, char* s2)
 {
